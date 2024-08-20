@@ -1,6 +1,14 @@
 # Docker Image for GUI Applications with XQuartz
 
-This Docker image provides an environment for running `openEMS` with graphic using X11.
+## Overview
+This Docker image provides an environment for running `openEMS` with graphic using X11. Develop the Python code to do the EM simulation in the `src` directory.
+
+## Project Structure
+
+- **`Dockerfile`**: Defines the Docker image and its environment.
+- **`Makefile`**: Provides commands to build and run the Docker container.
+- **`src/`**: Contains the Python script `Simple_Patch_Antenna.py`.
+- **`README.md`**: This file, containing project documentation.
 
 ## Overview
 
@@ -14,6 +22,8 @@ This Docker image provides an environment for running `openEMS` with graphic usi
 - Install `openEMS` and related dependencies
 - Run GUI applications within Docker
 - Access GUI applications using X11
+- Develop locally and execute your script inside a containerized environment.
+
 
 ## Prerequisites
 
@@ -36,28 +46,36 @@ This Docker image provides an environment for running `openEMS` with graphic usi
 ### On Linux
 
 - Make sure `xhost` is installed and configured properly to allow Docker containers to connect to the X server.
-
-## Building the Docker Image
-
-To build the Docker image from the provided Dockerfile:
-
-```bash
-docker build -t openems_docker .
-```
-
-## Running the Docker Container
 Allow Connections:
 ```bash
 xhost +localhost
 xhost +127.0.0.1
 ```
-Run the Docker Container:
+## Docker Setup
+
+### Build the Docker Image
+
+To build the Docker image, run the following command:
+
 ```bash
-docker run -it \
-    -e DISPLAY=host.docker.internal:0 \
-    -v /tmp/.X11-unix:/tmp/.X11-unix \
-    openems_docker
+make build
 ```
+### Run the Docker Container
+
+To run the Python script inside the Docker container, use:
+
+```bash
+make run
+```
+
+### Clean Up Docker Resources
+
+To remove dangling Docker containers, networks, and images, use:
+
+```bash
+make clean
+```
+
 
 ## Reference
 [1] [openEMS installation](https://docs.openems.de/install.html).  
