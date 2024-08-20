@@ -33,3 +33,10 @@ RUN git clone --recursive https://github.com/thliebig/openEMS-Project.git
 WORKDIR /app/openEMS-Project
 RUN ./update_openEMS.sh ~/opt/openEMS --with-hyp2mat --with-CTB --python
 
+# Set the working directory inside the container
+WORKDIR /app
+# Copy your Python script into the container
+COPY src/Simple_Patch_Antenna.py /app/
+
+# Default command
+CMD ["bash"]
