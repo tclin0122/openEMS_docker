@@ -1,7 +1,7 @@
-# Docker Image for GUI Applications with XQuartz
+# Docker Image for openEMS
 
 ## Overview
-This Docker image provides an environment for running `openEMS` with graphic using X11. Develop the Python code to do the EM simulation in the `src` directory.
+This Docker image provides an environment for running `openEMS` with graphic using X11. openEMS is a free and open electromagnetic field solver using the FDTD method. Develop your Python code in the `src` directory to develop locally and execute inside a containerized environment.
 
 ## Project Structure
 
