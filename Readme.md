@@ -42,7 +42,7 @@ This Docker image provides an environment for running `openEMS` with graphic usi
 To build the Docker image from the provided Dockerfile:
 
 ```bash
-docker build -t openEMS_docker .
+docker build -t openems_docker .
 ```
 
 ## Running the Docker Container
@@ -56,7 +56,7 @@ Run the Docker Container:
 docker run -it \
     -e DISPLAY=host.docker.internal:0 \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
-    openEMS_docker
+    openems_docker
 ```
 
 ## Reference
